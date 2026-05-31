@@ -1,26 +1,28 @@
-<div class="d-flex flex-row min-vh-100" tabindex="-1" (click)="toggleMobileSidebar($event)">
-  <app-sidebar
-    [isOpen]="sidebarOpen()"
-    [mobileSidebarVisible]="mobileSidebarVisible()"
-    (sidebarToggle)="toggleSidebar()"
-  />
-
-  <div class="app-content">
-    <app-header
-      class="sticky-top"
-      [isAdmin]="isAdmin()"
-      [showSidebar]="sidebarOpen()"
-      [userName]="userName()"
-      (logout)="handleLogout()"
-      (toggleSidebar)="toggleSidebar()"
+<div class="d-flex flex-row min-vh-100">
+  <div (click)="toggleMobileSidebar($event)">
+    <app-sidebar
+      [isOpen]="sidebarOpen()"
+      [mobileSidebarVisible]="mobileSidebarVisible()"
+      (sidebarToggle)="toggleSidebar()"
     />
 
-    <main class="flex-grow-1 main-content">
-      <router-outlet />
-    </main>
+    <div class="app-content">
+      <app-header
+        class="sticky-top"
+        [isAdmin]="isAdmin()"
+        [showSidebar]="sidebarOpen()"
+        [userName]="userName()"
+        (logout)="handleLogout()"
+        (toggleSidebar)="toggleSidebar()"
+      />
 
-    @if (!isFeedRoute()) {
-      <app-footer />
-    }
+      <main class="flex-grow-1 main-content">
+        <router-outlet />
+      </main>
+
+      @if (!isFeedRoute()) {
+        <app-footer />
+      }
+    </div>
   </div>
 </div>
