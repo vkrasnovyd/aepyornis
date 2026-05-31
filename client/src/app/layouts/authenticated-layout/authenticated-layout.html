@@ -2,7 +2,6 @@
   <app-sidebar
     [isOpen]="sidebarOpen()"
     [mobileSidebarVisible]="mobileSidebarVisible()"
-    (click)="toggleMobileSidebar($event)"
     (sidebarToggle)="toggleSidebar()"
   />
 
@@ -12,12 +11,11 @@
       [isAdmin]="isAdmin()"
       [showSidebar]="sidebarOpen()"
       [userName]="userName()"
-      (click)="toggleMobileSidebar($event)"
       (logout)="handleLogout()"
       (toggleSidebar)="toggleSidebar()"
     />
 
-    <main class="flex-grow-1 main-content" (click)="toggleMobileSidebar($event)">
+    <main class="flex-grow-1 main-content">
       <router-outlet />
     </main>
 
@@ -25,4 +23,8 @@
       <app-footer />
     }
   </div>
+
+  @if (mobileSidebarVisible()) {
+    <div class="sidebar-overlay" (click)="toggleMobileSidebar($event)"></div>
+  }
 </div>
