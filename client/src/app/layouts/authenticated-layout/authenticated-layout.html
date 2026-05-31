@@ -1,4 +1,9 @@
-<div class="d-flex flex-row min-vh-100">
+<div
+  class="d-flex flex-row min-vh-100"
+  [attr.tabindex]="mobileSidebarVisible() ? '0' : null"
+  (click)="mobileSidebarVisible() && toggleMobileSidebar($event)"
+  (keydown.enter)="mobileSidebarVisible() && toggleMobileSidebar($event)"
+>
   <app-sidebar
     [isOpen]="sidebarOpen()"
     [mobileSidebarVisible]="mobileSidebarVisible()"
@@ -23,8 +28,4 @@
       <app-footer />
     }
   </div>
-
-  @if (mobileSidebarVisible()) {
-    <div class="sidebar-overlay" (click)="toggleMobileSidebar($event)"></div>
-  }
 </div>
