@@ -1,14 +1,15 @@
 <aside
-  class="d-sm-flex flex-column flex-shrink-0 bg-body-tertiary sticky-top"
-  [class.is-hidden]="!mobileSidebarVisible()"
+  class="d-sm-flex flex-column flex-shrink-0 sticky-top min-vh-100"
+  [class.is-hidden]="!showMobileSidebar()"
   [class.is-open]="isOpen()"
+  (click)="showMobileSidebar() ? onToggleMobileSidebar($event) : null"
 >
   <div class="sidebar-brand d-flex flex-row align-items-center justify-content-center text-dark">
     <img alt="Logo" height="44" src="logo.svg" />
     <span class="ps-3 sidebar-brand-name">{{ 'Aepyornis' | translate }}</span>
   </div>
 
-  <div class="overflow-y-auto">
+  <div class="overflow-y-auto bg-body-tertiary">
     <ul
       class="nav nav-pills flex-column mb-auto"
       [class.is-hidden]="!isOpen()"

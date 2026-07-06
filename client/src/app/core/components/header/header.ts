@@ -31,9 +31,11 @@ export class Header {
   public readonly userName = input<string>();
   public readonly isAdmin = input<boolean>(false);
   public readonly showSidebar = input<boolean>(false);
+  public readonly showMobileSidebar = input<boolean>(false);
 
   // Output for sidebar toggle
   public readonly toggleSidebar = output<void>();
+  public readonly toggleMobileSidebar = output<Event>();
   public readonly logout = output<void>();
 
   public readonly selectedLanguage = signal('en');
@@ -59,5 +61,9 @@ export class Header {
 
   public onToggleSidebar(): void {
     this.toggleSidebar.emit();
+  }
+
+  public onToggleMobileSidebar(event: Event): void {
+    this.toggleMobileSidebar.emit(event);
   }
 }

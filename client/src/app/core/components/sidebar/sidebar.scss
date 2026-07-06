@@ -10,7 +10,7 @@ aside {
   overflow-x: hidden;
   overflow-y: auto;
   height: fit-content;
-  max-height: calc(100vh - 100px);
+  max-height: calc(100vh - 52px);
 
   &.is-hidden {
     display: none;
@@ -37,6 +37,7 @@ aside {
     top: 0;
     max-height: none;
     overflow: visible;
+    background-color: $bg-tertiary;
 
     &.is-open {
       width: 250px;

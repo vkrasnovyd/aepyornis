@@ -26,8 +26,8 @@ export class Sidebar {
   private userService = inject(User);
 
   public readonly isOpen = input<boolean>(false);
-  public readonly mobileSidebarVisible = input<boolean>(false);
-  public readonly sidebarToggle = output<void>();
+  public readonly showMobileSidebar = input<boolean>(false);
+  public readonly toggleMobileSidebar = output<Event>();
 
   public allMenuItems: MenuItem[] = [
     { label: _('Feed'), iconKey: 'metrics', route: '/feed', requiresActivityPub: true },
@@ -51,7 +51,7 @@ export class Sidebar {
     );
   });
 
-  public onToggle(): void {
-    this.sidebarToggle.emit();
+  public onToggleMobileSidebar(event: Event): void {
+    this.toggleMobileSidebar.emit(event);
   }
 }

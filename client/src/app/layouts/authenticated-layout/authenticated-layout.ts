@@ -24,7 +24,7 @@ export class AuthenticatedLayout {
     () => this.userService.getUserInfo()()?.profile?.admin || false,
   );
   public readonly sidebarOpen = signal(AuthenticatedLayout.getInitialSidebarState());
-  public readonly mobileSidebarVisible = signal(false);
+  public readonly showMobileSidebar = signal(false);
   public readonly currentUrl = signal(this.router.url);
   public readonly isFeedRoute = computed(() => this.currentUrl().startsWith('/feed'));
 
@@ -46,7 +46,7 @@ export class AuthenticatedLayout {
     const nextState = !this.sidebarOpen();
     this.sidebarOpen.set(nextState);
     localStorage.setItem(AuthenticatedLayout.SIDEBAR_STATE_KEY, String(nextState));
-    this.mobileSidebarVisible.update((value) => !value);
+    this.showMobileSidebar.update((value) => !value);
   }
 
   public toggleMobileSidebar(event: Event): void {
@@ -54,7 +54,7 @@ export class AuthenticatedLayout {
     const ignoredSelectors = ['.sidebar-toggle', '.header-user-menu', '.sidebar-brand'];
 
     if (target instanceof Element && !ignoredSelectors.some((sel) => target.closest(sel))) {
-      this.mobileSidebarVisible.set(false);
+      this.showMobileSidebar.set(false);
     }
   }
 }

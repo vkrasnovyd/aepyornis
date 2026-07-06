@@ -1,13 +1,8 @@
-<div
-  class="d-flex flex-row min-vh-100"
-  [attr.tabindex]="mobileSidebarVisible() ? '0' : null"
-  (click)="mobileSidebarVisible() && toggleMobileSidebar($event)"
-  (keydown.enter)="mobileSidebarVisible() && toggleMobileSidebar($event)"
->
+<div class="d-flex flex-row min-vh-100">
   <app-sidebar
     [isOpen]="sidebarOpen()"
-    [mobileSidebarVisible]="mobileSidebarVisible()"
-    (sidebarToggle)="toggleSidebar()"
+    [showMobileSidebar]="showMobileSidebar()"
+    (toggleMobileSidebar)="toggleMobileSidebar($event)"
   />
 
   <div class="app-content">
@@ -16,8 +11,10 @@
       [isAdmin]="isAdmin()"
       [showSidebar]="sidebarOpen()"
       [userName]="userName()"
+      [showMobileSidebar]="showMobileSidebar()"
       (logout)="handleLogout()"
       (toggleSidebar)="toggleSidebar()"
+      (toggleMobileSidebar)="toggleMobileSidebar($event)"
     />
 
     <main class="flex-grow-1 main-content">
