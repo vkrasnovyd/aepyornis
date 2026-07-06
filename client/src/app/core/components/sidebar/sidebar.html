@@ -1,8 +1,10 @@
 <aside
   class="d-sm-flex flex-column flex-shrink-0 sticky-top min-vh-100"
+  [attr.tabindex]="mobileSidebarVisible() ? '0' : null"
   [class.is-hidden]="!showMobileSidebar()"
   [class.is-open]="isOpen()"
   (click)="showMobileSidebar() ? onToggleMobileSidebar($event) : null"
+  (keydown.enter)="showMobileSidebar() ? onToggleMobileSidebar($event) : null"
 >
   <div class="sidebar-brand d-flex flex-row align-items-center justify-content-center text-dark">
     <img alt="Logo" height="44" src="logo.svg" />

@@ -9,12 +9,12 @@
     <app-header
       class="sticky-top"
       [isAdmin]="isAdmin()"
+      [showMobileSidebar]="showMobileSidebar()"
       [showSidebar]="sidebarOpen()"
       [userName]="userName()"
-      [showMobileSidebar]="showMobileSidebar()"
       (logout)="handleLogout()"
-      (toggleSidebar)="toggleSidebar()"
       (toggleMobileSidebar)="toggleMobileSidebar($event)"
+      (toggleSidebar)="toggleSidebar()"
     />
 
     <main class="flex-grow-1 main-content">

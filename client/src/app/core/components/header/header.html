@@ -5,8 +5,7 @@
         aria-label="Toggle sidebar"
         class="btn btn-link sidebar-toggle d-inline-flex align-items-center"
         [attr.aria-expanded]="showSidebar()"
-        (click)="onToggleSidebar()"
-        (click)="showMobileSidebar() ? onToggleMobileSidebar($event) : null"
+        (click)="onToggleSidebar($event)"
       >
         <app-icon name="menu" size="22px" />
       </button>

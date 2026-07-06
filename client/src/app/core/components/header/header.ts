@@ -59,8 +59,12 @@ export class Header {
     });
   }
 
-  public onToggleSidebar(): void {
+  public onToggleSidebar(event: Event): void {
     this.toggleSidebar.emit();
+
+    if (this.showMobileSidebar()) {
+      this.toggleMobileSidebar.emit(event);
+    }
   }
 
   public onToggleMobileSidebar(event: Event): void {
