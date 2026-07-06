@@ -50,11 +50,7 @@ export class AuthenticatedLayout {
   }
 
   public toggleMobileSidebar(event: Event): void {
-    const target = event.target;
-    const ignoredSelectors = ['.sidebar-toggle', '.header-user-menu', '.sidebar-brand'];
-
-    if (target instanceof Element && !ignoredSelectors.some((sel) => target.closest(sel))) {
-      this.showMobileSidebar.set(false);
-    }
+    // const target = event.target;
+    this.showMobileSidebar.set(false);
   }
 }
